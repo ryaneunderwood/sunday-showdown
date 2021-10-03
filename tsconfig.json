@@ -1,0 +1,37 @@
+{
+    "compilerOptions": {
+        "lib": ["es2020"],
+        "noEmit": true,
+        "target": "es2020",
+        "module": "CommonJS",
+        "moduleResolution": "node",
+        "strict": true,
+        "allowJs": true,
+        "checkJs": true,
+        "incremental": true,
+        "allowUnreachableCode": false,
+        "esModuleInterop": true
+    },
+    "types": ["node"],
+    "exclude": [
+        "./.*-dist/**/*",
+    ],
+    "include": [
+        "./config/*.ts",
+        "./data/*",
+        "./data/text/*",
+        "./data/mods/*/*",
+        "./dev-tools/*.ts",
+        "./lib/*.ts",
+        "./server/**/*.ts",
+        "./sim/**/*",
+        "./tools/set-import/*.ts",
+        "./tools/modlog/*.ts",
+        "./translations/**/*.ts",
+    ],
+    "ts-node": {
+        "files": true,
+        "transpileOnly": true,
+        "transpiler": "ts-node/transpilers/swc-experimental",
+    }
+}
