@@ -7107,4 +7107,74 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 6,
 		isNonstandard: "CAP",
 	},
+	chordaluxite: {
+		name: "Chordaluxite",
+		spritenum: 2000,
+		megaStone: "Chordalux-Mega",
+		megaEvolves: "Chordalux",
+		itemUser: ["Chordalux"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 2000,
+		gen: 6,
+		isNonstandard: "Past",
+	},
+	flygonite: {
+		name: "Flygonite",
+		spritenum: 2000,
+		megaStone: "Flygon-Mega",
+		megaEvolves: "Flygon",
+		itemUser: ["Flygon"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 2001,
+		gen: 6,
+		isNonstandard: "Past",
+	},
+	venusauriteg: {
+		name: "Venusaurite G",
+		spritenum: 2000,
+		megaStone: "Venusaur-Mega-G",
+		megaEvolves: "Venusaur",
+		itemUser: ["Venusaur"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 2002,
+		gen: 6,
+		isNonstandard: "Past",
+	},
+	charizarditeg: {
+		name: "Charizardite G",
+		spritenum: 2000,
+		megaStone: "Charizard-Mega-G",
+		megaEvolves: "Charizard",
+		itemUser: ["Charizard"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 2003,
+		gen: 6,
+		isNonstandard: "Past",
+	},
+	blastoisiniteg: {
+		name: "Blatoisinite G",
+		spritenum: 2000,
+		megaStone: "Blastoise-Mega-G",
+		megaEvolves: "Blastoise",
+		itemUser: ["Blastoise"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 2004,
+		gen: 6,
+		isNonstandard: "Past",
+	},
 };
