@@ -7107,9 +7107,163 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 6,
 		isNonstandard: "CAP",
 	},
+	// Sunday Items
+	pinkglitter: {
+		name: "Pink Glitter",
+		spritenum: 2000,
+		fling: {
+			basePower: 30,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Fairy') {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		num: 2000,
+		gen: 2,
+	},
+	magnifyingglass: {
+		name: "Magnifying Glass",
+		spritenum: 2001,
+		fling: {
+			basePower: 30,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Light') {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		num: 2001,
+		gen: 2,
+	},
+	lightgem: {
+		name: "Light Gem",
+		spritenum: 2002,
+		isGem: true,
+		onSourceTryPrimaryHit(target, source, move) {
+			if (target === source || move.category === 'Status') return;
+			if (move.type === 'Light' && source.useItem()) {
+				source.addVolatile('gem');
+			}
+		},
+		num: 2002,
+		gen: 5,
+		isNonstandard: "Past",
+	},
+	lightmemory: {
+		name: "Light Memory",
+		spritenum: 2003,
+		onMemory: 'Light',
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Silvally-Light",
+		itemUser: ["Silvally-Light"],
+		num: 2003,
+		gen: 7,
+	},
+	prismplate: {
+		name: "Prism Plate",
+		spritenum: 2004,
+		onPlate: 'Light',
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move.type === 'Light') {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 493) || pokemon.baseSpecies.num === 493) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Arceus-Light",
+		num: 2004,
+		gen: 4,
+		isNonstandard: "Unobtainable",
+	},
+	crannberry: {
+		name: "Crann Berry",
+		spritenum: 2005,
+		isBerry: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Light",
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Light' && target.getMoveHitData(move).typeMod > 0) {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+
+				if (target.eatItem()) {
+					this.debug('-50% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		onEat() { },
+		num: 2005,
+		gen: 4,
+	},
+	legendite: {
+		name: "Legendite",
+		spritenum: 2006,
+		fling: {
+			basePower: 40,
+		},
+		onModifyDefPriority: 2,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.nfe) {
+				const bstWithoutHp: number = pokemon.bst - pokemon.baseStats['hp'];
+				const scale = 600 - pokemon.baseStats['hp'];
+				return this.chainModify(scale / bstWithoutHp);
+			}
+		},
+		onModifySpDPriority: 2,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.nfe) {
+				const bstWithoutHp: number = pokemon.bst - pokemon.baseStats['hp'];
+				const scale = 600 - pokemon.baseStats['hp'];
+				return this.chainModify(scale / bstWithoutHp);
+			}
+		},
+		onModifyAtkPriority: 2,
+		onModifyAtk(def, pokemon) {
+			if (pokemon.baseSpecies.nfe) {
+				const bstWithoutHp: number = pokemon.bst - pokemon.baseStats['hp'];
+				const scale = 600 - pokemon.baseStats['hp'];
+				return this.chainModify(scale / bstWithoutHp);
+			}
+		},
+		onModifySpAPriority: 2,
+		onModifySpA(spd, pokemon) {
+			if (pokemon.baseSpecies.nfe) {
+				const bstWithoutHp: number = pokemon.bst - pokemon.baseStats['hp'];
+				const scale = 600 - pokemon.baseStats['hp'];
+				return this.chainModify(scale / bstWithoutHp);
+			}
+		},
+		onModifySpePriority: 2,
+		onModifySpe(def, pokemon) {
+			if (pokemon.baseSpecies.nfe) {
+				const bstWithoutHp: number = pokemon.bst - pokemon.baseStats['hp'];
+				const scale = 600 - pokemon.baseStats['hp'];
+				return this.chainModify(scale / bstWithoutHp);
+			}
+		},
+		num: 2006,
+		gen: 5,
+	},
 	chordaluxite: {
 		name: "Chordaluxite",
-		spritenum: 2000,
+		spritenum: 2007,
 		megaStone: "Chordalux-Mega",
 		megaEvolves: "Chordalux",
 		itemUser: ["Chordalux"],
@@ -7117,13 +7271,13 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: 2000,
+		num: 2007,
 		gen: 6,
 		isNonstandard: "Past",
 	},
 	flygonite: {
 		name: "Flygonite",
-		spritenum: 2000,
+		spritenum: 2008,
 		megaStone: "Flygon-Mega",
 		megaEvolves: "Flygon",
 		itemUser: ["Flygon"],
@@ -7131,13 +7285,13 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: 2001,
+		num: 2008,
 		gen: 6,
 		isNonstandard: "Past",
 	},
 	venusauriteg: {
 		name: "Venusaurite G",
-		spritenum: 2000,
+		spritenum: 2009,
 		megaStone: "Venusaur-Mega-G",
 		megaEvolves: "Venusaur",
 		itemUser: ["Venusaur"],
@@ -7145,13 +7299,13 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: 2002,
+		num: 2009,
 		gen: 6,
 		isNonstandard: "Past",
 	},
 	charizarditeg: {
 		name: "Charizardite G",
-		spritenum: 2000,
+		spritenum: 2010,
 		megaStone: "Charizard-Mega-G",
 		megaEvolves: "Charizard",
 		itemUser: ["Charizard"],
@@ -7159,13 +7313,13 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: 2003,
+		num: 2010,
 		gen: 6,
 		isNonstandard: "Past",
 	},
 	blastoisiniteg: {
 		name: "Blatoisinite G",
-		spritenum: 2000,
+		spritenum: 2011,
 		megaStone: "Blastoise-Mega-G",
 		megaEvolves: "Blastoise",
 		itemUser: ["Blastoise"],
@@ -7173,7 +7327,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: 2004,
+		num: 2011,
 		gen: 6,
 		isNonstandard: "Past",
 	},
