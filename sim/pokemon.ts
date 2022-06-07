@@ -785,9 +785,18 @@ export class Pokemon {
 	}
 
 	ignoringItem() {
+		let stellarradiation = false;
+		for (const pokemon of this.battle.getAllActive()) {
+			if (pokemon.ability === ('stellarradiation' as ID) && !pokemon.volatiles['gastroacid'] &&
+				!pokemon.abilityState.ending) {
+				stellarradiation = true;
+				break;
+			}
+		}
 		return !!((this.battle.gen >= 5 && !this.isActive) ||
 			(this.hasAbility('klutz') && !this.getItem().ignoreKlutz) ||
-			this.volatiles['embargo'] || this.battle.field.pseudoWeather['magicroom']);
+			this.volatiles['embargo'] || this.battle.field.pseudoWeather['magicroom'] ||
+			(this.hasItem('legendite') && stellarradiation));
 	}
 
 	deductPP(move: string | Move, amount?: number | null, target?: Pokemon | null | false) {

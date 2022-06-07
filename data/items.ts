@@ -7737,10 +7737,10 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 6,
 		isNonstandard: "Past",
 	},
-	urshifunite: {
-		name: "Urshifunite",
+	urshifunites: {
+		name: "Urshifunite S",
 		spritenum: 2041,
-		megaStone: "Urshifu-Mega",
+		megaStone: "Urshifu-Mega-S",
 		megaEvolves: "Urshifu",
 		itemUser: ["Urshifu"],
 		onTakeItem(item, source) {
@@ -7751,12 +7751,12 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 6,
 		isNonstandard: "Past",
 	},
-	necrozmite: {
-		name: "Necrozmite",
+	urshifuniter: {
+		name: "Urshifunite R",
 		spritenum: 2042,
-		megaStone: "Necrozma-Mega",
-		megaEvolves: "Necrozma",
-		itemUser: ["Necrozma"],
+		megaStone: "Urshifu-Mega-R",
+		megaEvolves: "Urshifu-Rapid-Strike",
+		itemUser: ["Urshifu-Rapid-Strike"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
@@ -7765,9 +7765,23 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 6,
 		isNonstandard: "Past",
 	},
+	necrozmite: {
+		name: "Necrozmite",
+		spritenum: 2043,
+		megaStone: "Necrozma-Mega",
+		megaEvolves: "Necrozma",
+		itemUser: ["Necrozma"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 2043,
+		gen: 6,
+		isNonstandard: "Past",
+	},
 	greninjite: {
 		name: "Greninjite",
-		spritenum: 2043,
+		spritenum: 2044,
 		megaStone: "Greninja-Mega",
 		megaEvolves: "Greninja",
 		itemUser: ["Greninja"],
@@ -7775,7 +7789,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: 2043,
+		num: 2044,
 		gen: 6,
 		isNonstandard: "Past",
 	},

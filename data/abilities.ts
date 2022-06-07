@@ -4433,63 +4433,75 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 161,
 	},
 
-	// CAP
-	mountaineer: {
-		onDamage(damage, target, source, effect) {
-			if (effect && effect.id === 'stealthrock') {
-				return false;
-			}
-		},
+	//Sunday
+	lightshow: {
+		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
-			if (move.type === 'Rock' && !target.activeTurns) {
-				this.add('-immune', target, '[from] ability: Mountaineer');
+			if (target !== source && move.type === 'Dark') {
+				this.add('-immune', target, '[from] ability: Light Show');
 				return null;
 			}
 		},
-		isNonstandard: "CAP",
+		onAllyTryHitSide(target, source, move) {
+			if (source === this.effectState.target || !target.isAlly(source)) return;
+		},
 		isBreakable: true,
-		name: "Mountaineer",
+		name: "Light Show",
 		rating: 3,
-		num: -2,
+		num: 270,
 	},
-	rebound: {
-		isNonstandard: "CAP",
-		name: "Rebound",
+	witchesbrew: {
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
-			if (this.effectState.target.activeTurns) return;
-
-			if (target === source || move.hasBounced || !move.flags['reflectable']) {
-				return;
+			if (target !== source && move.type === 'Poison') {
+				this.add('-immune', target, '[from] ability: Witches Brew');
+				return null;
 			}
-			const newMove = this.dex.getActiveMove(move.id);
-			newMove.hasBounced = true;
-			this.actions.useMove(newMove, target, source);
-			return null;
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (this.effectState.target.activeTurns) return;
-
-			if (target.isAlly(source) || move.hasBounced || !move.flags['reflectable']) {
-				return;
-			}
-			const newMove = this.dex.getActiveMove(move.id);
-			newMove.hasBounced = true;
-			this.actions.useMove(newMove, this.effectState.target, source);
-			return null;
-		},
-		condition: {
-			duration: 1,
+			if (source === this.effectState.target || !target.isAlly(source)) return;
 		},
 		isBreakable: true,
+		name: "Witches Brew",
 		rating: 3,
-		num: -3,
+		num: 271,
 	},
-	persistent: {
-		isNonstandard: "CAP",
-		name: "Persistent",
-		// implemented in the corresponding move
+	downpour: {
+		onUpdate(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Galefront' || pokemon.transformed) return;
+			let forme = null;
+			switch (pokemon.effectiveWeather()) {
+			case 'raindance':
+			case 'primordialsea':
+				if (pokemon.species.id !== 'galefrontstorm') forme = 'Galefront-Storm';
+				break;
+			default:
+				if (pokemon.species.id !== 'galefront') forme = 'Galefront';
+				break;
+			}
+			if (pokemon.isActive && forme) {
+				pokemon.formeChange(forme, this.effect, false, '[msg]');
+			}
+		},
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric' && ('Storm' === source.species.forme)) {
+				this.add('-immune', target, '[from] ability: Downpour');
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (source === this.effectState.target || !target.isAlly(source)) return;
+		},
+		isBreakable: true,
+		name: "Downpour",
 		rating: 3,
-		num: -4,
+		num: 272,
+	}.
+	stellarradiation: {
+		// Item suppression implemented in Pokemon.ignoringItem() within sim/pokemon.js
+		name: "Stellar Radiation",
+		rating: 3,
+		num: 273,
 	},
 };
