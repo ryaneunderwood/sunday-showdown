@@ -968,7 +968,7 @@ export const Rulesets: {[k: string]: FormatData} = {
 						typeTable = typeTable.filter(type => species.types.includes(type));
 					}
 					if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
-						species = this.dex.species.get("Necrozma-Ultra");
+						species = this.dex.species.get("Necrozma-Mega");
 						typeTable = typeTable.filter(type => species.types.includes(type));
 					}
 				}

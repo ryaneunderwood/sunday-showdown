@@ -6475,7 +6475,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onTakeItem: false,
 		zMove: "Light That Burns the Sky",
 		zMoveFrom: "Photon Geyser",
-		itemUser: ["Necrozma-Ultra"],
+		itemUser: ["Necrozma-Mega"],
 		num: 923,
 		gen: 7,
 		isNonstandard: "Past",

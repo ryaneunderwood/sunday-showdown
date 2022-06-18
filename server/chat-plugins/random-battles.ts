@@ -762,7 +762,7 @@ export const commands: Chat.ChatCommands = {
 			}
 			const mod = args[2] || 'gen7';
 			let bfSets;
-			if (species.name === 'Necrozma-Ultra') {
+			if (species.name === 'Necrozma-Mega') {
 				bfSets = battleFactorySets(Dex.species.get('necrozma-dawnwings'), tier, mod);
 				if (typeof bfSets === 'string') {
 					bfSets += battleFactorySets(Dex.species.get('necrozma-duskmane'), tier, mod);

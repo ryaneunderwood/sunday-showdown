@@ -4497,7 +4497,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Downpour",
 		rating: 3,
 		num: 272,
-	}.
+	},
 	stellarradiation: {
 		// Item suppression implemented in Pokemon.ignoringItem() within sim/pokemon.js
 		name: "Stellar Radiation",

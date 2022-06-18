@@ -1770,7 +1770,7 @@ export class BattleActions {
 	canUltraBurst(pokemon: Pokemon) {
 		if (['Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane'].includes(pokemon.baseSpecies.name) &&
 			pokemon.getItem().id === 'ultranecroziumz') {
-			return "Necrozma-Ultra";
+			return "Necrozma-Mega";
 		}
 		return null;
 	}

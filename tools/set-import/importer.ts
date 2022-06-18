@@ -309,7 +309,7 @@ function skip(dex: ModdedDex, format: Format, pokemon: string, set: DeepPartial<
 			return dex.items.get(set.item).megaStone !== pokemon;
 		}
 	}
-	if (pokemon === 'Necrozma-Ultra' && set.item !== 'Ultranecrozium Z') return true;
+	if (pokemon === 'Necrozma-Mega' && set.item !== 'Ultranecrozium Z') return true;
 	if (pokemon === 'Greninja-Ash' && set.ability !== 'Battle Bond') return true;
 	if (pokemon === 'Zygarde-Complete' && set.ability !== 'Power Construct') return true;
 	if (pokemon === 'Darmanitan-Zen' && set.ability !== 'Zen Mode') return true;

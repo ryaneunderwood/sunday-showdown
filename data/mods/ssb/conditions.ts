@@ -1477,7 +1477,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 			this.add(`c|${getName('Robb576')}|5, 7, 6, I will be right back into the mix!`);
 		},
 		onFaint(pokemon) {
-			if (pokemon.species.name === "Necrozma-Ultra") {
+			if (pokemon.species.name === "Necrozma-Mega") {
 				this.add(`c|${getName('Robb576')}|gg better luck next time. Sorry I couldn't handle them all :^(`);
 			} else {
 				this.add(`c|${getName('Robb576')}|8, 9, 10, it has been a pleasure man!`);

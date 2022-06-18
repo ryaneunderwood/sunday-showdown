@@ -1176,18 +1176,18 @@ export class TeamValidator {
 		const item = dex.items.get(set.item);
 		const species = dex.species.get(set.species);
 
-		if (species.name === 'Necrozma-Ultra') {
+		if (species.name === 'Necrozma-Mega') {
 			const whichMoves = (set.moves.includes('sunsteelstrike') ? 1 : 0) +
 				(set.moves.includes('moongeistbeam') ? 2 : 0);
 			if (item.name !== 'Ultranecrozium Z') {
-				// Necrozma-Ultra transforms from one of two formes, and neither one is the base forme
-				problems.push(`Necrozma-Ultra must start the battle holding Ultranecrozium Z.`);
+				// Necrozma-Mega transforms from one of two formes, and neither one is the base forme
+				problems.push(`Necrozma-Mega must start the battle holding Ultranecrozium Z.`);
 			} else if (whichMoves === 1) {
 				set.species = 'Necrozma-Dusk-Mane';
 			} else if (whichMoves === 2) {
 				set.species = 'Necrozma-Dawn-Wings';
 			} else {
-				problems.push(`Necrozma-Ultra must start the battle as Necrozma-Dusk-Mane or Necrozma-Dawn-Wings holding Ultranecrozium Z. Please specify which Necrozma it should start as.`);
+				problems.push(`Necrozma-Mega must start the battle as Necrozma-Dusk-Mane or Necrozma-Dawn-Wings holding Ultranecrozium Z. Please specify which Necrozma it should start as.`);
 			}
 		} else if (species.name === 'Zygarde-Complete') {
 			problems.push(`Zygarde-Complete must start the battle as Zygarde or Zygarde-10% with Power Construct. Please specify which Zygarde it should start as.`);

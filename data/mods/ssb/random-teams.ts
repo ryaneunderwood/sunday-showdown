@@ -667,7 +667,7 @@ export const ssbSets: SSBSets = {
 		skip: 'Robb576', // This set is transformed into by The Numbers Game ability
 	},
 	'Robb576-Ultra': {
-		species: 'Necrozma-Ultra', ability: 'The Numbers Game', item: 'Modium-6 Z', gender: 'M',
+		species: 'Necrozma-Mega', ability: 'The Numbers Game', item: 'Modium-6 Z', gender: 'M',
 		moves: ['Earthquake', 'Dynamax Cannon', 'Fusion Flare'],
 		signatureMove: 'Photon Geyser',
 		evs: {atk: 204, spa: 200, spe: 104}, nature: 'Hasty',

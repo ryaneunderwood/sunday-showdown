@@ -3045,7 +3045,7 @@ export const PokedexText: {[k: string]: PokedexText} = {
 		name: "Necrozma-Dawn-Wings",
 	},
 	necrozmaultra: {
-		name: "Necrozma-Ultra",
+		name: "Necrozma-Mega",
 	},
 	magearna: {
 		name: "Magearna",
@@ -3623,55 +3623,5 @@ export const PokedexText: {[k: string]: PokedexText} = {
 	astrolotl: {
 		name: "Astrolotl",
 	},
-	pokestarsmeargle: {
-		name: "Pokestar Smeargle",
-	},
-	pokestarufo: {
-		name: "Pokestar UFO",
-	},
-	pokestarufo2: {
-		name: "Pokestar UFO-2",
-	},
-	pokestarbrycenman: {
-		name: "Pokestar Brycen-Man",
-	},
-	pokestarmt: {
-		name: "Pokestar MT",
-	},
-	pokestarmt2: {
-		name: "Pokestar MT2",
-	},
-	pokestartransport: {
-		name: "Pokestar Transport",
-	},
-	pokestargiant: {
-		name: "Pokestar Giant",
-	},
-	pokestarhumanoid: {
-		name: "Pokestar Humanoid",
-	},
-	pokestarmonster: {
-		name: "Pokestar Monster",
-	},
-	pokestarf00: {
-		name: "Pokestar F-00",
-	},
-	pokestarf002: {
-		name: "Pokestar F-002",
-	},
-	pokestarspirit: {
-		name: "Pokestar Spirit",
-	},
-	pokestarblackdoor: {
-		name: "Pokestar Black Door",
-	},
-	pokestarwhitedoor: {
-		name: "Pokestar White Door",
-	},
-	pokestarblackbelt: {
-		name: "Pokestar Black Belt",
-	},
-	pokestarufopropu2: {
-		name: "Pokestar UFO-PropU2",
-	},
+	
 };

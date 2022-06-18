@@ -601,7 +601,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Field", "Fairy"],
 		otherFormes: ["Pikachu-Cosplay", "Pikachu-Rock-Star", "Pikachu-Belle", "Pikachu-Pop-Star", "Pikachu-PhD", "Pikachu-Libre", "Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner", "Pikachu-Starter", "Pikachu-World","Pikachu-Mega"],
 		formeOrder: [
-			"Pikachu","Pikachu-Mega"
+			"Pikachu","Pikachu-Mega",
 			"Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner", // Gen 7 formes
 			"Pikachu-Starter", // forme 8 in LGPE
 			"Pikachu-World", // Gen 8 forme (indexed as Pikachu 9 in datamine)
@@ -16755,7 +16755,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		formeOrder: ["Eternatus", "Eternatus-Mega", "Eternatus-Eternamax"],
 		cannotDynamax: true,
 	},
-	eternatusmega {
+	eternatusmega: {
 		num: 890,
 		name: "Eternatus-Mega",
 		baseSpecies: "Eternatus",

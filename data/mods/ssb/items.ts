@@ -38,7 +38,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onTakeItem: false,
 		zMove: "Integer Overflow",
 		zMoveFrom: "Photon Geyser",
-		itemUser: ["Necrozma-Ultra"],
+		itemUser: ["Necrozma-Mega"],
 		gen: 8,
 		desc: "If held by a Robb576 with Photon Geyser, it can use Integer Overflow.",
 	},
